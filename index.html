@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Website Gue</title>
+  <title>Website Keren</title>
   <style>
     body {
-      margin: 0;
-      font-family: Arial;
-      background: linear-gradient(135deg, #667eea, #764ba2);
+      background: linear-gradient(135deg, #1e1e2f, #3a3a5f);
       color: white;
       text-align: center;
+      font-family: Arial;
     }
-    .card {
-      background: rgba(255,255,255,0.1);
-      padding: 20px;
-      margin: 100px auto;
-      width: 80%;
-      border-radius: 20px;
+    h1 {
+      margin-top: 100px;
+      font-size: 40px;
     }
     button {
       padding: 10px 20px;
+      background: #00ffcc;
       border: none;
       border-radius: 10px;
       cursor: pointer;
@@ -27,27 +24,10 @@
 </head>
 <body>
 
-<div class="card">
-  <h1>🚀 Website Gue</h1>
-  <p id="teks">Klik tombol di bawah</p>
+<h1>🚀 Website Gue</h1>
+<p>Ini aink Ilham ai sia😎</p>
 
-  <button onclick="ganti()">Klik</button>
-</div>
-
-<script>
-function ganti() {
-  const kata = [
-    "🔥 Mantap!",
-    "😎 Gua ilham",
-    "🚀 Anjay gelo!",
-    "💻 Mabar gaskeun!",
-    "⚡ GG!"
-  ];
-  
-  let random = Math.floor(Math.random() * kata.length);
-  document.getElementById("teks").innerHTML = kata[random];
-}
-</script>
+<button onclick="alert('Halo bang!')">Klik Gue</button>
 
 </body>
-</html>+
+</html>
