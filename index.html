@@ -1,80 +1,150 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Website Gua</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial;
-      color: white;
-      text-align: center;
-      overflow: hidden;
-      background: linear-gradient(270deg, #ff00cc, #3333ff);
-      background-size: 400% 400%;
-      animation: bg 10s ease infinite;
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Gua</title>
 
-    @keyframes bg {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  color: #00ffcc;
+  text-align: center;
+  overflow: hidden;
+  background: black;
+}
 
-    h1 {
-      margin-top: 100px;
-      font-size: 40px;
-    }
+/* 🌌 bintang */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
 
-    #text {
-      font-size: 20px;
-      margin-top: 20px;
-    }
+/* 💻 teks hacker */
+h1 {
+  margin-top: 100px;
+  font-size: 35px;
+  text-shadow: 0 0 10px #00ffcc;
+}
 
-    button {
-      margin-top: 30px;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 10px;
-      background: #00ffcc;
-      color: black;
-      cursor: pointer;
-      font-size: 16px;
-      box-shadow: 0 0 15px #00ffcc;
-      transition: 0.3s;
-    }
+/* tombol */
+button {
+  margin-top: 30px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  background: #00ffcc;
+  color: black;
+  cursor: pointer;
+  box-shadow: 0 0 20px #00ffcc;
+  transition: 0.3s;
+}
 
-    button:hover {
-      box-shadow: 0 0 30px #00ffcc;
-      transform: scale(1.1);
-    }
-  </style>
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px #00ffcc;
+}
+
+/* ✨ cursor glow */
+.cursor {
+  position: fixed;
+  width: 15px;
+  height: 15px;
+  background: #00ffcc;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 20px #00ffcc;
+}
+</style>
 </head>
 
 <body>
 
-  <h1>🚀 Website Gua</h1>
-  <p id="text"></p>
+<canvas id="stars"></canvas>
 
-  <button onclick="klik()">Klik Gua 😎</button>
+<h1>💻 Website Hacker Gua</h1>
+<p id="text"></p>
 
-  <script>
-    let i = 0;
-    let txt = "Halo bang ini aink Ilham 😎 ini website pertama gua yang udah makin keren!";
-    
-    function ketik() {
-      if (i < txt.length) {
-        document.getElementById("text").innerHTML += txt.charAt(i);
-        i++;
-        setTimeout(ketik, 50);
-      }
-    }
+<button onclick="klik()">Klik Gua 😎</button>
 
-    ketik();
+<div class="cursor" id="cursor"></div>
 
-    function klik() {
-      alert("Wih ditekan juga 😆🔥");
-    }
-  </script>
+<audio id="music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+<script>
+
+/* 🎵 musik */
+window.onload = () => {
+  document.body.onclick = () => {
+    document.getElementById("music").play();
+  }
+}
+
+/* ⌨️ typing effect */
+let i = 0;
+let txt = "Selamat datang di website aink Ilham 😈🔥";
+function ketik() {
+  if (i < txt.length) {
+    document.getElementById("text").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(ketik, 50);
+  }
+}
+ketik();
+
+/* 🖱️ cursor glow */
+const cursor = document.getElementById("cursor");
+document.addEventListener("mousemove", e => {
+  cursor.style.top = e.clientY + "px";
+  cursor.style.left = e.clientX + "px";
+});
+
+/* 🌌 bintang */
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let stars = [];
+for (let i = 0; i < 100; i++) {
+  stars.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    size: Math.random() * 2
+  });
+}
+
+function drawStars() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "#00ffcc";
+
+  stars.forEach(s => {
+    ctx.fillRect(s.x, s.y, s.size, s.size);
+  });
+}
+
+function updateStars() {
+  stars.forEach(s => {
+    s.y += 0.5;
+    if (s.y > canvas.height) s.y = 0;
+  });
+}
+
+function animate() {
+  drawStars();
+  updateStars();
+  requestAnimationFrame(animate);
+}
+animate();
+
+/* tombol */
+function klik() {
+  alert("Mode hacker aktif 😈🔥");
+}
+
+</script>
 
 </body>
 </html>
