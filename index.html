@@ -1,90 +1,85 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Website Gua</title>
+<title>Website Aink Ilham</title>
 
 <style>
 body {
   margin: 0;
-  font-family: Arial;
-  color: #00ffcc;
-  text-align: center;
-  overflow: hidden;
+  font-family: monospace;
   background: black;
+  color: #00ff99;
+  text-align: center;
 }
 
-/* 🌌 bintang */
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-/* 💻 teks hacker */
 h1 {
-  margin-top: 100px;
-  font-size: 35px;
-  text-shadow: 0 0 10px #00ffcc;
+  margin-top: 50px;
+  font-size: 40px;
+  text-shadow: 0 0 10px #00ff99;
 }
 
-/* tombol */
 button {
-  margin-top: 30px;
-  padding: 12px 25px;
-  border: none;
+  padding: 10px 20px;
+  background: black;
+  border: 2px solid #00ff99;
+  color: #00ff99;
   border-radius: 10px;
-  background: #00ffcc;
-  color: black;
   cursor: pointer;
-  box-shadow: 0 0 20px #00ffcc;
-  transition: 0.3s;
 }
 
-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 40px #00ffcc;
+.card {
+  margin: 20px;
 }
 
-/* ✨ cursor glow */
-.cursor {
-  position: fixed;
-  width: 15px;
-  height: 15px;
-  background: #00ffcc;
-  border-radius: 50%;
-  pointer-events: none;
-  box-shadow: 0 0 20px #00ffcc;
+img {
+  width: 150px;
+  border-radius: 10px;
+  border: 2px solid #00ff99;
+}
+
+#game {
+  margin-top: 50px;
 }
 </style>
-</head>
 
+</head>
 <body>
 
-<canvas id="stars"></canvas>
+<h1>💻 Website Hacker Aink 😈</h1>
 
-<h1>💻 Website aink ilham </h1>
 <p id="text"></p>
 
-<button onclick="klik()">Klik Gua 😎</button>
+<button onclick="klik()">Klik Gue 😎</button>
 
-<div class="cursor" id="cursor"></div>
+<!-- Gambar Gen Z + Horror -->
+<div class="card">
+  <img src="https://i.imgur.com/3ZQ3Z9k.jpeg">
+  <img src="https://i.imgur.com/8Km9tLL.jpeg">
+  <img src="https://i.imgur.com/2DhmtJ4.jpeg">
+</div>
 
-<audio id="music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+<!-- MINI GAME -->
+<div id="game">
+  <h2>🎮 Mini Game - Klik Cepat</h2>
+  <p>Score: <span id="score">0</span></p>
+  <button onclick="addScore()">KLIK CEPAT ⚡</button>
+  <button onclick="resetScore()">RESET</button>
+</div>
+
+<!-- AUDIO -->
+<audio id="music" src="https://drive.google.com/file/d/1c5hwvkcKoBC_qaDGE_8DyYh3xzaNeppJ/view?usp=drivesdk "></audio>
 
 <script>
-
-/* 🎵 musik */
-window.onload = () => {
-  document.body.onclick = () => {
-    document.getElementById("music").play();
-  }
+// musik play
+document.body.onclick = () => {
+  document.getElementById("music").play();
 }
 
-/* ⌨️ typing effect */
+// typing effect
 let i = 0;
-let txt = "Selamat datang di website aink Ilham 😈🔥";
+let txt = "Selamat datang di website aink ilham 😈🔥";
 function ketik() {
   if (i < txt.length) {
     document.getElementById("text").innerHTML += txt.charAt(i);
@@ -94,57 +89,23 @@ function ketik() {
 }
 ketik();
 
-/* 🖱️ cursor glow */
-const cursor = document.getElementById("cursor");
-document.addEventListener("mousemove", e => {
-  cursor.style.top = e.clientY + "px";
-  cursor.style.left = e.clientX + "px";
-});
-
-/* 🌌 bintang */
-const canvas = document.getElementById("stars");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let stars = [];
-for (let i = 0; i < 100; i++) {
-  stars.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    size: Math.random() * 2
-  });
-}
-
-function drawStars() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "#00ffcc";
-
-  stars.forEach(s => {
-    ctx.fillRect(s.x, s.y, s.size, s.size);
-  });
-}
-
-function updateStars() {
-  stars.forEach(s => {
-    s.y += 0.5;
-    if (s.y > canvas.height) s.y = 0;
-  });
-}
-
-function animate() {
-  drawStars();
-  updateStars();
-  requestAnimationFrame(animate);
-}
-animate();
-
-/* tombol */
+// tombol klik
 function klik() {
-  alert("Mode comeback aktif 😈🔥");
+  alert("Wih ditekan juga 😈🔥");
 }
 
+// mini game
+let score = 0;
+
+function addScore() {
+  score++;
+  document.getElementById("score").innerText = score;
+}
+
+function resetScore() {
+  score = 0;
+  document.getElementById("score").innerText = score;
+}
 </script>
 
 </body>
