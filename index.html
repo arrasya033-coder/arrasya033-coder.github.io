@@ -1,23 +1,32 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Website Aink Ilham</title>
 
 <style>
 body {
   margin: 0;
   font-family: monospace;
-  background: black;
   color: #00ff99;
   text-align: center;
+  overflow: hidden;
+
+  /* 🌌 background gambar + gerak */
+  background: url('https://i.imgur.com/6Iej2c3.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  animation: zoom 20s infinite alternate;
+}
+
+@keyframes zoom {
+  0% {transform: scale(1);}
+  100% {transform: scale(1.1);}
 }
 
 h1 {
   margin-top: 50px;
   font-size: 40px;
-  text-shadow: 0 0 10px #00ff99;
+  text-shadow: 0 0 15px #00ff99;
 }
 
 button {
@@ -27,6 +36,7 @@ button {
   color: #00ff99;
   border-radius: 10px;
   cursor: pointer;
+  margin: 5px;
 }
 
 .card {
@@ -34,13 +44,13 @@ button {
 }
 
 img {
-  width: 150px;
+  width: 120px;
   border-radius: 10px;
   border: 2px solid #00ff99;
 }
 
 #game {
-  margin-top: 50px;
+  margin-top: 40px;
 }
 </style>
 
@@ -53,7 +63,7 @@ img {
 
 <button onclick="klik()">Klik Gue 😎</button>
 
-<!-- Gambar Gen Z + Horror -->
+<!-- Gambar -->
 <div class="card">
   <img src="https://i.imgur.com/3ZQ3Z9k.jpeg">
   <img src="https://i.imgur.com/8Km9tLL.jpeg">
@@ -62,24 +72,24 @@ img {
 
 <!-- MINI GAME -->
 <div id="game">
-  <h2>🎮 Mini Game - Klik Cepat</h2>
+  <h2>🎮 Mini Game</h2>
   <p>Score: <span id="score">0</span></p>
-  <button onclick="addScore()">KLIK CEPAT ⚡</button>
+  <button onclick="addScore()">KLIK ⚡</button>
   <button onclick="resetScore()">RESET</button>
 </div>
 
-<!-- AUDIO -->
-<audio id="music" src="https://drive.google.com/file/d/1c5hwvkcKoBC_qaDGE_8DyYh3xzaNeppJ/view?usp=drivesdk "></audio>
+<!-- AUDIO (udah aku isi lagu yang WORK) -->
+<audio id="music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
 
 <script>
-// musik play
+// 🎵 musik (harus klik dulu biar bunyi)
 document.body.onclick = () => {
   document.getElementById("music").play();
 }
 
-// typing effect
+// ⌨️ typing effect
 let i = 0;
-let txt = "Selamat datang di website aink ilham 😈🔥";
+let txt = "Selamat datang di website hacker aink 😈🔥";
 function ketik() {
   if (i < txt.length) {
     document.getElementById("text").innerHTML += txt.charAt(i);
@@ -91,10 +101,10 @@ ketik();
 
 // tombol klik
 function klik() {
-  alert("Wih ditekan juga 😈🔥");
+  alert("Mode hacker aktif 😈🔥");
 }
 
-// mini game
+// 🎮 mini game
 let score = 0;
 
 function addScore() {
