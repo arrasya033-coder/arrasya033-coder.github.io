@@ -1,10 +1,112 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Website Ilham Aink 😈</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: monospace;
+  text-align: center;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* BACKGROUND GAMBAR + WARNA */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('https://i.imgur.com/8Km9tLL.jpeg') center/cover no-repeat;
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(45deg, #ff00cc88, #00ffff88, #ff000088);
+  animation: gerak 8s infinite linear;
+  z-index: -1;
+}
+
+@keyframes gerak {
+  0% { transform: translate(0,0); }
+  50% { transform: translate(-10%, -10%); }
+  100% { transform: translate(0,0); }
+}
+
+/* TEXT */
+h1 {
+  margin-top: 50px;
+  font-size: 35px;
+  text-shadow: 0 0 15px cyan;
+}
+
+/* BUTTON */
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  background: black;
+  border: 2px solid cyan;
+  color: cyan;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* GAMBAR */
+.card img {
+  width: 120px;
+  margin: 10px;
+  border-radius: 10px;
+  border: 2px solid white;
+  animation: goyang 2s infinite alternate;
+}
+
+@keyframes goyang {
+  from { transform: rotate(-5deg); }
+  to { transform: rotate(5deg); }
+}
+
+/* GAME */
+#game {
+  margin-top: 40px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>💻 Website Ilham Aink 😈🔥</h1>
+
+<p id="text"></p>
+
+<button onclick="klik()">Klik Gue 😎</button>
+
+<!-- GAMBAR -->
+<div class="card">
+  <img src="https://i.imgur.com/3ZQ3Z9k.jpeg">
+  <img src="https://i.imgur.com/8Km9tLL.jpeg">
+  <img src="https://i.imgur.com/2DhmtJ4.jpeg">
+</div>
+
+<!-- GAME -->
+<div id="game">
+  <h2>🎮 Mini Game</h2>
+  <p>Score: <span id="score">0</span></p>
+  <button onclick="addScore()">KLIK CEPAT ⚡</button>
+  <button onclick="resetScore()">RESET</button>
+</div>
+
+<!-- AUDIO -->
+<audio id="music" src="https://files.catbox.moe/8kq1p3.mp3"></audio>
+
 <script>
-// AUTOPLAY (butuh klik dulu)
+// MUSIK (klik dulu baru jalan)
 document.body.addEventListener("click", function () {
-  const music = document.getElementById("music");
-  if (music) {
-    music.play();
-  }
+  let music = document.getElementById("music");
+  if (music) music.play();
 });
 
 // TYPING
@@ -12,8 +114,8 @@ let i = 0;
 let txt = "Selamat datang di website Ilham aink 😈🔥";
 
 function ketik() {
-  const el = document.getElementById("text");
-  if (!el) return; // biar gak error kalau id gak ada
+  let el = document.getElementById("text");
+  if (!el) return;
 
   if (i < txt.length) {
     el.innerHTML += txt.charAt(i);
@@ -33,14 +135,12 @@ let score = 0;
 
 function addScore() {
   score++;
-  const el = document.getElementById("score");
-  if (el) el.innerText = score;
+  document.getElementById("score").innerText = score;
 }
 
 function resetScore() {
   score = 0;
-  const el = document.getElementById("score");
-  if (el) el.innerText = score;
+  document.getElementById("score").innerText = score;
 }
 </script>
 
