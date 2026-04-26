@@ -1,54 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Website Aink Ilham</title>
+<title>Website Aink Ilham 😈</title>
 
 <style>
 body {
   margin: 0;
   font-family: monospace;
-  color: #00ff99;
   text-align: center;
+  color: white;
   overflow: hidden;
-
-  /* 🌌 background gambar + gerak */
-  background: url('https://i.imgur.com/6Iej2c3.jpeg') no-repeat center center fixed;
-  background-size: cover;
-  animation: zoom 20s infinite alternate;
 }
 
-@keyframes zoom {
-  0% {transform: scale(1);}
-  100% {transform: scale(1.1);}
+/* BACKGROUND GEN Z ANIMASI */
+body::before {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, #ff00cc, #3333ff, #00ffcc, #ff0000);
+  background-size: 400% 400%;
+  animation: bgMove 10s infinite linear;
+  z-index: -1;
 }
 
+@keyframes bgMove {
+  0% { transform: translate(0,0); }
+  50% { transform: translate(-25%, -25%); }
+  100% { transform: translate(0,0); }
+}
+
+/* TEXT */
 h1 {
   margin-top: 50px;
-  font-size: 40px;
-  text-shadow: 0 0 15px #00ff99;
+  font-size: 35px;
+  text-shadow: 0 0 15px cyan;
 }
 
+/* BUTTON */
 button {
-  padding: 10px 20px;
+  padding: 12px 25px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
   background: black;
-  border: 2px solid #00ff99;
-  color: #00ff99;
-  border-radius: 10px;
+  color: cyan;
+  border: 2px solid cyan;
   cursor: pointer;
-  margin: 5px;
 }
 
-.card {
-  margin: 20px;
-}
-
-img {
+/* GAMBAR */
+.card img {
   width: 120px;
+  margin: 10px;
   border-radius: 10px;
-  border: 2px solid #00ff99;
+  border: 2px solid white;
+  animation: goyang 2s infinite alternate;
 }
 
+@keyframes goyang {
+  from { transform: rotate(-5deg); }
+  to { transform: rotate(5deg); }
+}
+
+/* GAME */
 #game {
   margin-top: 40px;
 }
@@ -57,13 +72,13 @@ img {
 </head>
 <body>
 
-<h1>💻 Website Hacker Aink 😈</h1>
+<h1>💻 Website Ilham Aink 😈🔥</h1>
 
 <p id="text"></p>
 
 <button onclick="klik()">Klik Gue 😎</button>
 
-<!-- Gambar -->
+<!-- GAMBAR GEN Z -->
 <div class="card">
   <img src="https://i.imgur.com/3ZQ3Z9k.jpeg">
   <img src="https://i.imgur.com/8Km9tLL.jpeg">
@@ -74,37 +89,37 @@ img {
 <div id="game">
   <h2>🎮 Mini Game</h2>
   <p>Score: <span id="score">0</span></p>
-  <button onclick="addScore()">KLIK ⚡</button>
+  <button onclick="addScore()">KLIK CEPAT ⚡</button>
   <button onclick="resetScore()">RESET</button>
 </div>
 
-<!-- AUDIO (udah aku isi lagu yang WORK) -->
-<audio id="music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
+<!-- AUDIO -->
+<audio id="music" src="https://files.catbox.moe/8kq1p3.mp3"></audio>
 
 <script>
-// 🎵 musik (harus klik dulu biar bunyi)
+// AUTOPLAY (butuh klik dulu)
 document.body.onclick = () => {
   document.getElementById("music").play();
 }
 
-// ⌨️ typing effect
+// TYPING
 let i = 0;
 let txt = "Selamat datang di website hacker aink 😈🔥";
 function ketik() {
   if (i < txt.length) {
     document.getElementById("text").innerHTML += txt.charAt(i);
     i++;
-    setTimeout(ketik, 50);
+    setTimeout(ketik, 40);
   }
 }
 ketik();
 
-// tombol klik
+// ALERT
 function klik() {
-  alert("Mode hacker aktif 😈🔥");
+  alert("Wih ditekan juga 😈🔥");
 }
 
-// 🎮 mini game
+// GAME
 let score = 0;
 
 function addScore() {
