@@ -1,33 +1,80 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Website Keren</title>
+  <title>Website Gua</title>
   <style>
     body {
-      background: linear-gradient(135deg, #1e1e2f, #3a3a5f);
+      margin: 0;
+      font-family: Arial;
       color: white;
       text-align: center;
-      font-family: Arial;
+      overflow: hidden;
+      background: linear-gradient(270deg, #ff00cc, #3333ff);
+      background-size: 400% 400%;
+      animation: bg 10s ease infinite;
     }
+
+    @keyframes bg {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
     h1 {
       margin-top: 100px;
       font-size: 40px;
     }
+
+    #text {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+
     button {
-      padding: 10px 20px;
-      background: #00ffcc;
+      margin-top: 30px;
+      padding: 12px 25px;
       border: none;
       border-radius: 10px;
+      background: #00ffcc;
+      color: black;
       cursor: pointer;
+      font-size: 16px;
+      box-shadow: 0 0 15px #00ffcc;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      box-shadow: 0 0 30px #00ffcc;
+      transform: scale(1.1);
     }
   </style>
 </head>
+
 <body>
 
-<h1>🚀 Website Gue</h1>
-<p>Ini aink Ilham ai sia😎</p>
+  <h1>🚀 Website Gua</h1>
+  <p id="text"></p>
 
-<button onclick="alert('Halo bang!')">Klik Gue</button>
+  <button onclick="klik()">Klik Gua 😎</button>
+
+  <script>
+    let i = 0;
+    let txt = "Halo bang ini aink Ilham 😎 ini website pertama gua yang udah makin keren!";
+    
+    function ketik() {
+      if (i < txt.length) {
+        document.getElementById("text").innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(ketik, 50);
+      }
+    }
+
+    ketik();
+
+    function klik() {
+      alert("Wih ditekan juga 😆🔥");
+    }
+  </script>
 
 </body>
 </html>
